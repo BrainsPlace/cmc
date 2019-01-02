@@ -8,12 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class CountComponent implements OnInit {
 
-  events$: Object;
+  overview$: Object;
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.data.getEvents().subscribe(
-      data => this.events$ = data
+    this.data.getOverview().subscribe(
+      data => this.overview$ = data
     )
   }
 
