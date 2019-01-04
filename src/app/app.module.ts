@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CountComponent } from './count/count.component';
 import { HttpClientModule} from '@angular/common/http';
+import { CountUpModule } from 'countup.js-angular2';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CountUpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
