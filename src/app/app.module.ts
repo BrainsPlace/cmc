@@ -6,18 +6,23 @@ import { AppComponent } from './app.component';
 import { CountComponent } from './count/count.component';
 import { HttpClientModule} from '@angular/common/http';
 import { CountUpModule } from 'countup.js-angular2';
+import { DetailsComponent } from './details/details.component';
+import { MatCardModule, MatDividerModule } from '@angular/material';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CountComponent
+    CountComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CountUpModule
+    CountUpModule,
+    MatCardModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

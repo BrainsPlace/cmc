@@ -1,0 +1,7 @@
+<div *ngFor="let e of events$" style="padding-bottom: 2em;">
+  <mat-card class="card">
+    <mat-card-title>Homicide #{{ e.count }} - {{ e.incident }} </mat-card-title>
+    <mat-card-subtitle>{{ e.address }}</mat-card-subtitle>
+
+  </mat-card>
+</div>
