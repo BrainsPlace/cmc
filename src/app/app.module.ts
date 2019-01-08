@@ -8,13 +8,15 @@ import { HttpClientModule} from '@angular/common/http';
 import { CountUpModule } from 'countup.js-angular2';
 import { DetailsComponent } from './details/details.component';
 import { MatCardModule, MatDividerModule } from '@angular/material';
-
+import { MapsOverviewComponent } from './maps-overview/maps-overview.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     CountComponent,
-    DetailsComponent
+    DetailsComponent,
+    MapsOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,11 @@ import { MatCardModule, MatDividerModule } from '@angular/material';
     HttpClientModule,
     CountUpModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAEGGW-_erhOI1Xb4fOPQIcO7k7Hvc_ois'
+    })
+
   ],
   providers: [],
   bootstrap: [AppComponent]
