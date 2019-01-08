@@ -1,3 +1,11 @@
 .card {
-    max-width: 30%;
+    max-width: 100%;
+}
+
+#details-container {
+    max-width: 45%;
+    border-color: red;
+    border-style: solid;
+    display: inline-block;
+
 }

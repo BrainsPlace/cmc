@@ -1,9 +1,11 @@
-<div id="details" *ngFor="let e of events$" style="padding-bottom: 2em;">
-  <mat-card class="card">
-    <mat-card-title>Homicide #{{ e.count }} - {{ e.incident }} </mat-card-title>
-    <mat-card-subtitle>{{ e.address }}</mat-card-subtitle>
-    <mat-card-content>
-      <a href="{{ e.source }}">More Details</a>
-    </mat-card-content>
-  </mat-card>
+<div id="details-container">
+  <div *ngFor="let e of events$" style="padding-bottom: 2em;">
+    <mat-card class="card">
+      <mat-card-title>Homicide #{{ e.count }} - {{ e.incident }} </mat-card-title>
+      <mat-card-subtitle>{{ e.address }}</mat-card-subtitle>
+      <mat-card-content>
+        <a href="{{ e.source }}">More Details</a>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
