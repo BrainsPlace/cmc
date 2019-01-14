@@ -58,8 +58,12 @@ def getCbusPage():
 def updateJson():
     global jsonData
     global count
+    global homicides
+    
     for h in homicides:
         if int(h.homicide) not in incidentList:
+            print("found new homicide - " + str(h.homicide))
+            
             count+=1
             loc = convertAddressToLongLat(h.address)
             jsonData["events"].append({
@@ -76,7 +80,6 @@ def updateJson():
 def convertAddressToLongLat(address):
     address = address.replace(' ', '%20')
     gUrl = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=AIzaSyAEGGW-_erhOI1Xb4fOPQIcO7k7Hvc_ois'
-    print(gUrl)
     with urllib.request.urlopen(gUrl) as url:
         res = json.loads(url.read().decode())
     _lat = res['results'][0]['geometry']['location']['lat']
@@ -89,6 +92,8 @@ count = parseCount(jsonData)
 incidentList = parseIncidents(jsonData)  #ex: [190001041, 181081371]
 getCbusPage()
 updateJson()
-print(json.dumps(jsonData, indent=2, sort_keys=True))
+#print(json.dumps(jsonData, indent=2, sort_keys=True))
 
-print(count)
+f = open('db.json', 'w+')
+f.write(json.dumps(jsonData, indent=2, sort_keys=True))
+f.close
