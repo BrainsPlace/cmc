@@ -1,10 +1,8 @@
 #agm-map {
     height: 700px;
     width:700px;
-    border: darkgreen;
-    border-style: solid;
     float: right;
     left: -150px;
     display: inline-block;
-    padding-right: 15%;
+    padding-right: 5%;
   }
