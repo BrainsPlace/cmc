@@ -20,7 +20,7 @@ def getDB():
 def parseIncidents(data):
     incidents = []
     for i in data['events']:  
-        incidents.append(i['incident'])
+        incidents.append(int(i['incident']))
     return incidents
 
 def parseCount(data):
@@ -40,7 +40,6 @@ def getCbusPage():
     page = requests.get(cbusMediaURL)
     soup = BeautifulSoup(page.text, 'html.parser')
     content = soup.find_all(class_='inner-right-flow')
-
     for c in content:
         incident = c.contents[1]
         if "homicide" in str(incident).lower():
@@ -87,12 +86,16 @@ def convertAddressToLongLat(address):
 
     return [_lat, _long]
 
+
+#################################################
+#################################################
+#################################################
+
 jsonData = getDB()
 count = parseCount(jsonData)
 incidentList = parseIncidents(jsonData)  #ex: [190001041, 181081371]
 getCbusPage()
 updateJson()
-#print(json.dumps(jsonData, indent=2, sort_keys=True))
 
 f = open('db.json', 'w+')
 f.write(json.dumps(jsonData, indent=2, sort_keys=True))
