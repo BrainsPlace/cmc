@@ -1,0 +1,9 @@
+.card {
+    max-width: 100%;
+}
+
+#details-container {
+    max-width: 45%;
+    display: inline-block;
+
+}

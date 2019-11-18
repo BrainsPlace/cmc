@@ -1,0 +1,8 @@
+#agm-map {
+    height: 700px;
+    width:700px;
+    float: right;
+    left: -150px;
+    display: inline-block;
+    padding-right: 5%;
+  }
