@@ -2,7 +2,21 @@ import urllib.request, json
 import requests
 from bs4 import BeautifulSoup
 
-cbusMediaURL = 'https://www.columbus.gov/police-mediareleases/'
+url2019 = ['https://www.columbus.gov/Templates/Detail.aspx?id=2147508427',
+'https://www.columbus.gov/Templates/Detail.aspx?id=2147509168',
+'https://www.columbus.gov/Templates/Detail.aspx?id=2147509706',
+'https://www.columbus.gov/Templates/Detail.aspx?id=2147510110',
+'https://www.columbus.gov/Templates/Detail.aspx?id=2147510533',
+'https://www.columbus.gov/Templates/Detail.aspx?id=2147510855',
+'https://www.columbus.gov/Templates/Detail.aspx?id=2147511342',
+'https://www.columbus.gov/Templates/Detail.aspx?id=2147511623',
+'https://www.columbus.gov/Templates/Detail.aspx?id=2147511972',
+'https://www.columbus.gov/Templates/Detail.aspx?id=2147512345',
+'https://www.columbus.gov/police-mediareleases/']
+
+#landing page https://www.columbus.gov/police-mediareleases/
+
+#cbusMediaURL = 'https://www.columbus.gov/Templates/Detail.aspx?id=2147512345'
 gitDbURL = 'https://raw.githubusercontent.com/BrainsPlace/demo/master/db.json'
 homicides = []
 count = -1
@@ -35,9 +49,9 @@ def parseIncidentNumberFromPublicRelease(h):
 def parseAddressFromPublicRelease(h):
     return  h[1 : h.rfind('\r')]
 
-def getCbusPage():
+def getCbusPage(url):
     global count
-    page = requests.get(cbusMediaURL)
+    page = requests.get(url)
     soup = BeautifulSoup(page.text, 'html.parser')
     content = soup.find_all(class_='inner-right-flow')
     for c in content:
@@ -62,7 +76,7 @@ def updateJson():
     for h in homicides:
         if int(h.homicide) not in incidentList:
             print("found new homicide - " + str(h.homicide))
-            
+            incidentList.append(int(h.homicide))
             count+=1
             loc = convertAddressToLongLat(h.address)
             jsonData["events"].append({
@@ -94,7 +108,10 @@ def convertAddressToLongLat(address):
 jsonData = getDB()
 count = parseCount(jsonData)
 incidentList = parseIncidents(jsonData)  #ex: [190001041, 181081371]
-getCbusPage()
+
+for u in url2019:
+    print('checking for ' + u)
+    getCbusPage(u)
 updateJson()
 
 f = open('db.json', 'w+')
