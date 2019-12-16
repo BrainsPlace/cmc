@@ -12,10 +12,10 @@ export class CountComponent implements OnInit {
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.data.getOverview().subscribe(
-      data => this.overview$ = data
-    )
-  console.log('data', this.data);
+  //   this.data.getOverview().subscribe(
+  //     data => this.overview$ = data
+  //   )
+  // console.log('data', this.data);
+  this.overview$ = this.data.getOverview();
   }
-
 }

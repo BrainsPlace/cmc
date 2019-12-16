@@ -12,9 +12,10 @@ export class DetailsComponent implements OnInit {
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.data.getEvents().subscribe(
-      data => this.events$ = data
-    )
+    // this.data.getEvents().subscribe(
+    //   data => this.events$ = data
+    // )
+    this.events$ = this.data.getEvents();
   }
 
 }

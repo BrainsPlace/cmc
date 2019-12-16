@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { jsonData } from '../assets/db.json'
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { console.log(jsonData);}
 
   getOverview() {
-    return this.http.get('https://my-json-server.typicode.com/brainsplace/demo/overview')
+    return jsonData.overview;
+    //return this.http.get('https://my-json-server.typicode.com/brainsplace/demo/overview')
     //return this.http.get('http://localhost:3000/overview')
   }
 
   getEvents() {
-    return this.http.get('https://my-json-server.typicode.com/brainsplace/demo/events')
+    return jsonData.events;
+    //return this.http.get('https://my-json-server.typicode.com/brainsplace/demo/events')
     //return this.http.get('http://localhost:3000/events')
   } 
 
