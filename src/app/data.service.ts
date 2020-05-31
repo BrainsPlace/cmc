@@ -9,12 +9,12 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getOverview() {
+  getDatafile(): any {
     //return this.http.get('https://my-json-server.typicode.com/brainsplace/demo/overview')
     return this.http.get('https://raw.githubusercontent.com/BrainsPlace/demo/master/db.json')
   }
 
-  getEvents() {
+  getEvents(): any {
     return this.http.get('https://raw.githubusercontent.com/BrainsPlace/demo/master/db.json')
   }   
 }

@@ -11,15 +11,17 @@ export class MapsOverviewComponent implements OnInit {
 
   lat: number = 51.678418;
   lng: number = 7.809007;
-  events$: Object;
+  events: Object;
 
   
   constructor(private http: HttpClient, private data: DataService) { }
 
   ngOnInit() {
-    // this.data.getEvents().subscribe(
-    //   data => this.events$ = data
-    // )
-    this.events$ = this.data.getEvents();
+    this.data.getDatafile().subscribe(
+      res => {
+        console.log(res.events);
+        this.events = res.events;
+      }
+    )
   }
 }

@@ -1,5 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+
+
+
+export interface event {
+  address: string;
+  coord_x: number;
+  coord_y: number;
+  count: number;
+  date: string;
+  incident: number;
+  source: string;
+  year: number;
+}
+
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -7,15 +21,18 @@ import { DataService } from '../data.service';
 })
 export class DetailsComponent implements OnInit {
 
-  events$: Object;
+  events: Object;
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    // this.data.getEvents().subscribe(
-    //   data => this.events$ = data
-    // )
-    this.events$ = this.data.getEvents();
+    this.data.getDatafile().subscribe(
+      res => {
+        console.log(res.events);
+        this.events = res.events;
+      }
+    )
+    // this.events$ = this.data.getEvents();
   }
 
 }

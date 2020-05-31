@@ -1,21 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-count',
   templateUrl: './count.component.html',
   styleUrls: ['./count.component.css']
 })
+
 export class CountComponent implements OnInit {
 
-  overview$: Object;
+  count = 0;
+
   constructor(private data: DataService) { }
 
   ngOnInit() {
-  //   this.data.getOverview().subscribe(
-  //     data => this.overview$ = data
-  //   )
-  // console.log('data', this.data);
-  this.overview$ = this.data.getOverview();
-  }
+      this.data.getDatafile().subscribe(
+        res => {
+          console.log(res.overview);
+          this.count = res.overview.sum;
+          console.log(this.count);
+        }
+      );
+    }
 }
