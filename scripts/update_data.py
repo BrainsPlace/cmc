@@ -4,6 +4,18 @@ from bs4 import BeautifulSoup
 
 cbusMediaURL = 'https://www.columbus.gov/police-mediareleases/'
 gitDbURL = 'https://raw.githubusercontent.com/BrainsPlace/demo/master/db.json'
+
+
+urls = [   
+    'https://www.columbus.gov/Templates/Detail.aspx?id=2147514027', #jan
+    'https://www.columbus.gov/Templates/Detail.aspx?id=2147514275', #feb
+    'https://www.columbus.gov/Templates/Detail.aspx?id=2147514909', #mar
+    'https://www.columbus.gov/Templates/Detail.aspx?id=2147515230', #apr
+    'https://www.columbus.gov/police-mediareleases/' #curr
+]
+
+
+
 homicides = []
 count = -1
 class Homicide:
@@ -54,6 +66,29 @@ def getCbusPage():
                 'https://www.columbus.gov' + url)
             homicides.append(h)
 
+def getPoliceMediaReleases(url):
+    global count
+    page = requests.get(url)
+    soup = BeautifulSoup(page.text, 'html.parser')
+    content = soup.find_all(class_='inner-right-flow')
+    
+    for c in reversed(content):
+        incident = c.contents[1]
+        if "homicide" in str(incident).lower():
+            
+            homicide = incident.find('strong').contents[0]
+            if any(h.homicide == homicide for h in homicides):
+                break #already in list (guessing this is an update)
+
+            address = incident.find('span').contents[0]
+            url = incident.find('a').get('href')
+
+            h = Homicide(parseIncidentNumberFromPublicRelease(homicide),
+                parseDateFromPublicRelease(homicide),
+                parseAddressFromPublicRelease(address),
+                'https://www.columbus.gov' + url)
+            homicides.append(h)
+
 def updateJson():
     global jsonData
     global count
@@ -91,10 +126,22 @@ def convertAddressToLongLat(address):
 #################################################
 #################################################
 
+# jsonData = getDB()
+# count = parseCount(jsonData)
+# incidentList = parseIncidents(jsonData)  #ex: [190001041, 181081371]
+# getCbusPage()
+# updateJson()
+
+# f = open('db.json', 'w+')
+# f.write(json.dumps(jsonData, indent=2, sort_keys=True))
+# f.close
+
+
+incidentList = []
+for u in urls:
+    getPoliceMediaReleases(u)
+
 jsonData = getDB()
-count = parseCount(jsonData)
-incidentList = parseIncidents(jsonData)  #ex: [190001041, 181081371]
-getCbusPage()
 updateJson()
 
 f = open('db.json', 'w+')

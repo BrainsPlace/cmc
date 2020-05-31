@@ -14,12 +14,5 @@ export class DataService {
 
   getEvents() {
     return this.http.get('https://my-json-server.typicode.com/brainsplace/demo/events')
-  } 
-
-  getCoordsFromAddress(address: string) {
-    return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' 
-    + address 
-    + '&key=AIzaSyAEGGW-_erhOI1Xb4fOPQIcO7k7Hvc_ois')
-  }
-  
+  }   
 }
