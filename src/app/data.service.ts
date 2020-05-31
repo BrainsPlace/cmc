@@ -1,29 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { jsonData } from '../assets/db.json'
+import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  constructor(private http: HttpClient) { console.log(jsonData);}
+  constructor(private http: HttpClient) { }
 
   getOverview() {
-    return jsonData.overview;
     //return this.http.get('https://my-json-server.typicode.com/brainsplace/demo/overview')
-    //return this.http.get('http://localhost:3000/overview')
+    return this.http.get('https://raw.githubusercontent.com/BrainsPlace/demo/master/db.json')
   }
 
   getEvents() {
-    return jsonData.events;
-    //return this.http.get('https://my-json-server.typicode.com/brainsplace/demo/events')
-    //return this.http.get('http://localhost:3000/events')
-  } 
-
-  getCoordsFromAddress(address: string) {
-    return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' 
-    + address 
-    + '&key=AIzaSyAEGGW-_erhOI1Xb4fOPQIcO7k7Hvc_ois')
-  }
-  
+    return this.http.get('https://raw.githubusercontent.com/BrainsPlace/demo/master/db.json')
+  }   
 }
