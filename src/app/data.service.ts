@@ -11,10 +11,10 @@ export class DataService {
 
   getDatafile(): any {
     //return this.http.get('https://my-json-server.typicode.com/brainsplace/demo/overview')
-    return this.http.get('https://raw.githubusercontent.com/BrainsPlace/demo/master/db.json')
+    return this.http.get('https://raw.githubusercontent.com/BrainsPlace/cmc/master/scripts/db.json')
   }
 
   getEvents(): any {
-    return this.http.get('https://raw.githubusercontent.com/BrainsPlace/demo/master/db.json')
+    return this.http.get('https://raw.githubusercontent.com/BrainsPlace/cmc/master/scripts/db.json')
   }   
 }
