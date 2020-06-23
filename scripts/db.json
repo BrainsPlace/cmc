@@ -419,11 +419,121 @@
       "incident": "200382248",
       "source": "https://www.columbus.gov/WorkArea/DownloadAsset.aspx?id=2147515511",
       "year": 2019
+    },
+    {
+      "address": "1774 Kent St. Columbus, OH 43205",
+      "coord_x": 39.9517889,
+      "coord_y": -82.9507124,
+      "count": 43,
+      "date": "6/1/2020",
+      "incident": "200394311",
+      "source": "https://www.columbus.gov/WorkArea/DownloadAsset.aspx?id=2147515574",
+      "year": 2019
+    },
+    {
+      "address": "1958 Maryland Ave. Columbus, OH 43219",
+      "coord_x": 39.9776277,
+      "coord_y": -82.9506387,
+      "count": 44,
+      "date": "6/1/2020",
+      "incident": "200395466",
+      "source": "https://www.columbus.gov/WorkArea/DownloadAsset.aspx?id=2147515576",
+      "year": 2019
+    },
+    {
+      "address": "5913 O'Reily Dr. Galloway, OH 43119",
+      "coord_x": 39.9363487,
+      "coord_y": -83.1555825,
+      "count": 45,
+      "date": "6/4/2020",
+      "incident": "200402818",
+      "source": "https://www.columbus.gov/WorkArea/DownloadAsset.aspx?id=2147515619",
+      "year": 2019
+    },
+    {
+      "address": "362 S. Eureka Ave. Columbus, OH 43204",
+      "coord_x": 39.947866,
+      "coord_y": -83.064614,
+      "count": 46,
+      "date": "6/7/2020",
+      "incident": "200410464",
+      "source": "https://www.columbus.gov/WorkArea/DownloadAsset.aspx?id=2147515653",
+      "year": 2019
+    },
+    {
+      "address": "815 S. 22nd St. Columbus, OH 43219",
+      "coord_x": 39.9482313,
+      "coord_y": -82.9731526,
+      "count": 47,
+      "date": "6/16/2020",
+      "incident": "200435478",
+      "source": "https://www.columbus.gov/WorkArea/DownloadAsset.aspx?id=2147515746",
+      "year": 2019
+    },
+    {
+      "address": "1091 S. High St. Columbus, OH 43206",
+      "coord_x": 39.9396284,
+      "coord_y": -82.99693909999999,
+      "count": 48,
+      "date": "6/17/2020",
+      "incident": "200391102",
+      "source": "https://www.columbus.gov/WorkArea/DownloadAsset.aspx?id=2147515775",
+      "year": 2019
+    },
+    {
+      "address": "1589 Cordell Ave. Columbus, OH 43211",
+      "coord_x": 40.0109499,
+      "coord_y": -82.9668949,
+      "count": 49,
+      "date": "6/17/2020",
+      "incident": "200438608",
+      "source": "https://www.columbus.gov/WorkArea/DownloadAsset.aspx?id=2147515782",
+      "year": 2019
+    },
+    {
+      "address": "2545 Vanderberg Ave. Columbus, OH 43204",
+      "coord_x": 39.9363379,
+      "coord_y": -83.0653954,
+      "count": 50,
+      "date": "6/20/2020",
+      "incident": "200446933",
+      "source": "https://www.columbus.gov/WorkArea/DownloadAsset.aspx?id=2147515822",
+      "year": 2019
+    },
+    {
+      "address": "793 Canonby Pl. Columbus, OH 43223",
+      "coord_x": 39.9429026,
+      "coord_y": -83.0214094,
+      "count": 51,
+      "date": "6/21/2020",
+      "incident": "200452614",
+      "source": "https://www.columbus.gov/WorkArea/DownloadAsset.aspx?id=2147515829",
+      "year": 2019
+    },
+    {
+      "address": "6056 Channingway Blvd. Columbus, OH 43232",
+      "coord_x": 39.9389014,
+      "coord_y": -82.8316641,
+      "count": 52,
+      "date": "6/22/2020",
+      "incident": "200455619",
+      "source": "https://www.columbus.gov/WorkArea/DownloadAsset.aspx?id=2147515852",
+      "year": 2019
+    },
+    {
+      "address": "1094 E. 17th Ave. Columbus, OH 43211",
+      "coord_x": 40.0006302,
+      "coord_y": -82.9782759,
+      "count": 53,
+      "date": "6/22/2020",
+      "incident": "200455100",
+      "source": "https://www.columbus.gov/WorkArea/DownloadAsset.aspx?id=2147515853",
+      "year": 2019
     }
   ],
   "overview": {
     "id": 0,
-    "sum": 42
+    "sum": 53
   },
   "profile": {
     "name": "typicode"
